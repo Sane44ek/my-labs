@@ -1,1 +1,6 @@
+# Sensitive files
+ssh_key.txt
+ssh_key.txt.pub
+token.txt
 *.txt
+'!README.txt'
