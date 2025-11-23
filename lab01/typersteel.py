@@ -1,40 +1,64 @@
 """
-Lab 01: CLI Application with formal/informal greetings
-Author: Sane44ek
-Date: 2025
-Description: Implementation of CLI with argparse fallback
+LAB 01: CLI APPLICATION WITH FORMAL/INFORMAL GREETINGS
+AUTHOR: SANE44EK  
+DATE: 2025
+DESCRIPTION: IMPLEMENTATION OF CLI WITH ARGPARSE FALLBACK
 """
 
-def main(name: str, lastname: str = "", formal: bool = False):
+def main(
+    name: str, 
+    lastname: str = "", 
+    formal: bool = False
+) -> None:
     """
-    Говорит "Привет" пользователю, опционально используя фамилию и формальный стиль.
+    SAYS HELLO TO USER, OPTIONALLY USING LASTNAME AND FORMAL STYLE
     
-    Args:
-        name (str): Имя пользователя (обязательный параметр)
-        lastname (str): Фамилия пользователя (опционально)
-        formal (bool): Флаг формального приветствия (опционально)
+    ARGS:
+        NAME (STR): USER NAME (REQUIRED)
+        LASTNAME (STR): USER LASTNAME (OPTIONAL) 
+        FORMAL (BOOL): FORMAL GREETING FLAG (OPTIONAL)
     
-    Returns:
-        None: Выводит приветствие в консоль
+    RETURNS:
+        NONE: PRINTS GREETING TO CONSOLE
     """
-    # Проверяем режим приветствия
+    # CHECK GREETING MODE
     if formal:
-        # Формальное приветствие с фамилией
-        print(f"Добрый день, {name} {lastname}!")
+        # FORMAL GREETING WITH LASTNAME
+        greeting = f"Добрый день, {name} {lastname}!"
     else:
-        # Неформальное приветствие только с именем
-        print(f"Привет, {name}!")
+        # INFORMAL GREETING WITH NAME ONLY
+        greeting = f"Привет, {name}!"
+    
+    # PRINT THE GREETING
+    print(greeting)
+
 
 if __name__ == "__main__":
     import argparse
     
-    # Парсинг аргументов командной строки
-    parser = argparse.ArgumentParser(description="Говорит 'Привет' пользователю")
-    parser.add_argument("name", help="Имя пользователя")
-    parser.add_argument("--lastname", default="", help="Фамилия пользователя.")
-    parser.add_argument("--formal", "-f", action="store_true", 
-                       help="Использовать формальное приветствие.")
+    # COMMAND LINE ARGUMENTS PARSING
+    parser = argparse.ArgumentParser(
+        description="Говорит 'Привет' пользователю"
+    )
     
-    # Получаем аргументы и вызываем основную функцию
-    args = parser.parse_args()
-    main(args.name, args.lastname, args.formal)
+    parser.add_argument(
+        "name", 
+        help="Имя пользователя"
+    )
+    
+    parser.add_argument(
+        "--lastname", 
+        default="", 
+        help="Фамилия пользователя."
+    )
+    
+    parser.add_argument(
+        "--formal", 
+        "-f", 
+        action="store_true", 
+        help="Использовать формальное приветствие."
+    )
+    
+    # GET ARGUMENTS AND CALL MAIN FUNCTION
+    arguments = parser.parse_args()
+    main(arguments.name, arguments.lastname, arguments.formal)
