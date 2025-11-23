@@ -1,8 +1,20 @@
-# Лабораторная работа 1
+# My Labs Repository
 
-## Системы обмена данными
+Репозиторий для лабораторных работ по разработке и безопасности.
 
-Изучение Git, GitHub, GPG подписи коммитов.
+## Структура проекта
+├── lab01
+│ ├── README.md
+│ └── typersteel.py
+├── lab02
+│ ├── exmpl_hello.py
+│ ├── pygamesteel.py
+│ └── README.md
+├── LICENSE.md
+├── NOTICE.md
+├── README.md
+└── SECURITY.md
 
-### Файлы
-- `typersteel.py` - основное приложение на Python с Typer
+## Лабораторные работы
+- [Lab 01: Системы обмена данными](./lab01/README.md)
+- [Lab 02: Будет добавлено](./lab02/README.md)
