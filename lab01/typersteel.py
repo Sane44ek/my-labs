@@ -1,5 +1,5 @@
 """
-Lab 01: CLI Application - EDITED IN MAIN BRANCH
+Lab 01: CLI Application - MAIN BRANCH EDITED
 This version was edited directly in GitHub main branch
 """
 
