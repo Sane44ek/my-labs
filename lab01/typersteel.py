@@ -1,11 +1,17 @@
-#!/usr/bin/env python3
-import sys
+import typer
 
-name = "appsec world"
-print("Hello " + name)
+def main(
+    name: str,
+    lastname: str = typer.Option("", help="Фамилия пользователя."),
+    formal: bool = typer.Option(False, "--formal", "-f", help="Использовать формальное приветствие."),
+):
+    """
+    Говорит "Привет" пользователю, опционально используя фамилию и формальный стиль.
+    """
+    if formal:
+        print(f"Добрый день, {name} {lastname}!")
+    else:
+        print(f"Привет, {name}!")
 
-if len(sys.argv) > 1:
-    user_name = sys.argv[1]
-    print(f"Hello {name} from {user_name}")
-else:
-    print("No name provided")
+if __name__ == "__main__":
+    typer.run(main)
